@@ -24,13 +24,15 @@ function pokemonListHTML(pokemon) {
 
 const pokemonOl = (document.getElementById("pokemonsList"))
 
-pokeApi.getPokemons().then((pokemonList) => {
-    const listeItens = []
-        for (let i = 0; i < pokemonList.length; i++) {
-            const pokemon = pokemonList[i];
-            listeItens.push( pokemonListHTML(pokemon))
-        }
-        console.log(listeItens)
+pokeApi.getPokemons().then((pokemonList = []) => {
+
+    const newList = pokemonList.map((pokemon) => {
+        return pokemonListHTML(pokemon)
     })
 
-  
+    const newHTML = newList.join("")
+    pokemonOl.innerHTML += newHTML
+    
+})
+
+
