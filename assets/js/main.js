@@ -5,12 +5,12 @@ const url = `https://pokeapi.co/api/v2/pokemon?offset=${offSet}&limit=${limit}`
 function pokemonListHTML(pokemon) {
     return `
     <li class="Pokemon">
-    <span class="number">#001</span>
+    <span class="number">#${pokemon.order}</span>
     <span class="name">${pokemon.name}</span>
 
     <div class="deteil">
         <ol class="types">
-            <li class="type">grass</li>
+            <li class="type">${}</li>
             <li class="type">Poison</li>
         </ol>
 
