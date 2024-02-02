@@ -5,7 +5,7 @@ pokeApi.getPokemonsDeatil = (pokemon) =>{
     .then((response) => response.json())
 }
 
-pokeApi.getPokemons = function (offSet = 0, limit = 10) {
+pokeApi.getPokemons = function (offSet = 0, limit = 5) {
     const url = `https://pokeapi.co/api/v2/pokemon?offset=${offSet}&limit=${limit}`
 
     //fazendo requizição usando fetch  
@@ -23,6 +23,7 @@ pokeApi.getPokemons = function (offSet = 0, limit = 10) {
 
         .then((detailRequests) => Promise.all(detailRequests))
         .then((pokemonsDetails) => pokemonsDetails)
+        
 
         //catch caso a requisição de errado
         .catch((error) => {

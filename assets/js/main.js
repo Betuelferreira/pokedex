@@ -1,6 +1,12 @@
-const offSet = 0
+/* const offSet = 0
 const limit = 10
-const url = `https://pokeapi.co/api/v2/pokemon?offset=${offSet}&limit=${limit}`
+const url = `https://pokeapi.co/api/v2/pokemon?offset=${offSet}&limit=${limit}` */
+
+function converte(pokemonTypes){
+    return pokemonTypes.map((typeSlot)=>{
+        return `<li class="type">${typeSlot.type.name}</li>`
+    })
+}
 
 function pokemonListHTML(pokemon) {
     return `
@@ -10,11 +16,10 @@ function pokemonListHTML(pokemon) {
 
     <div class="deteil">
         <ol class="types">
-            <li class="type">${}</li>
-            <li class="type">Poison</li>
+        ${converte(pokemon.types).join(' ')}
         </ol>
 
-        <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png"
+        <img src="${pokemon.sprites.other.dream_world.front_default}"
             alt="imagem do ${pokemon.name} ">
     </div>
 
