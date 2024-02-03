@@ -1,8 +1,25 @@
 const pokeApi = {}
 
+function convertPokeApeDeatilToPokemons(pokeDetails){
+    const pokemon = new Pokemon()
+    pokemon.number = pokeDetails.order
+    pokemon.nome = pokeDetails.name
+    
+    const types = pokeDetails.types.map((typeSlot) => typeSlot.type.name)
+    const [type] = types
+
+    pokemon.tipes = types
+    pokemon.type = type
+    pokemon.photo = pokeDetails.sprites.other.dream_world.front_default
+
+    return pokemon
+
+}
+
 pokeApi.getPokemonsDeatil = (pokemon) =>{
     return fetch(pokemon.url)
     .then((response) => response.json())
+    .then(convertPokeApeDeatilToPokemons)
 }
 
 pokeApi.getPokemons = function (offSet = 0, limit = 5) {

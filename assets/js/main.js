@@ -5,21 +5,22 @@ const url = `https://pokeapi.co/api/v2/pokemon?offset=${offSet}&limit=${limit}` 
 function converte(pokemonTypes){
     return pokemonTypes.map((typeSlot)=>{
         return `<li class="type">${typeSlot.type.name}</li>`
+        
     })
 }
 
 function pokemonListHTML(pokemon) {
     return `
     <li class="Pokemon">
-    <span class="number">#${pokemon.order}</span>
-    <span class="name">${pokemon.name}</span>
+    <span class="number">#${pokemon.number}</span>
+    <span class="name">${pokemon.nome}</span>
 
-    <div class="deteil">
+    <div class="detail">
         <ol class="types">
-        ${converte(pokemon.types).join(' ')}
+        ${pokemon.types.map((type) =>`<li class="type">${type}</li>`).join(" ")}
         </ol>
 
-        <img src="${pokemon.sprites.other.dream_world.front_default}"
+        <img src="${pokemon.photo}"
             alt="imagem do ${pokemon.name} ">
     </div>
 
