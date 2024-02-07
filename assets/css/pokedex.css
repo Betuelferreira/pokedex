@@ -21,6 +21,7 @@
 }
 
 .Pokemon .name{
+    text-transform: capitalize;
     color: #ffffff;
     margin-bottom: 0;
 }
@@ -64,6 +65,26 @@
 
 }
 
+.pagina{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+    
+
+}
+
+.pagina button{
+    background-color: #6c79db;
+    border: none;
+    border-radius: 1rem;
+    color: #ffffff;
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
 
 @media screen and (min-width: 380px) {
     .Pokemons{
@@ -92,3 +113,5 @@
        
     }
 }   
+
+

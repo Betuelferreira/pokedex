@@ -11,7 +11,7 @@ function converte(pokemonTypes){
 
 function pokemonListHTML(pokemon) {
     return `
-    <li class="Pokemon">
+    <li class="Pokemon ${pokemon.type}" >
     <span class="number">#${pokemon.number}</span>
     <span class="name">${pokemon.nome}</span>
 
