@@ -2,12 +2,15 @@
 const limit = 10
 const url = `https://pokeapi.co/api/v2/pokemon?offset=${offSet}&limit=${limit}` */
 
-function converte(pokemonTypes){
+/* function converte(pokemonTypes){
     return pokemonTypes.map((typeSlot)=>{
         return `<li class="type">${typeSlot.type.name}</li>`
         
     })
 }
+ */
+const pokemonOl = (document.getElementById("pokemonsList"))
+const botaoMais = (document.getElementById("Mais"))
 
 function pokemonListHTML(pokemon) {
     return `
@@ -28,9 +31,19 @@ function pokemonListHTML(pokemon) {
     `
 }
 
-const pokemonOl = (document.getElementById("pokemonsList"))
 
-pokeApi.getPokemons().then((pokemonList = []) => {
+function loadPokemonItens(){
+    pokeApi.getPokemons().then((pokemons = []) => {
+
+        const newHTML = pokemons.map(pokemonListHTML).join(' ')
+        pokemonOl.innerHTML += newHTML
+        
+        
+    })
+    
+}
+
+/* pokeApi.getPokemons().then((pokemonList = []) => {
 
     const newList = pokemonList.map((pokemon) => {
         return pokemonListHTML(pokemon)
@@ -39,6 +52,4 @@ pokeApi.getPokemons().then((pokemonList = []) => {
     const newHTML = newList.join("")
     pokemonOl.innerHTML += newHTML
     
-})
-
-
+}) */
